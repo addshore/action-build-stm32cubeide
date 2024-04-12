@@ -8,9 +8,13 @@ inputs:
   project-target:  # id of input
     description: 'Which target in the STM32CubeIde project to build. Format: target/[build-configuration]'
     required: true
+  build-variant:  # id of input
+    description: 'Which build variant to build'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.project-path }}
     - ${{ inputs.project-target }}
+    - ${{ inputs.build-variant }}
